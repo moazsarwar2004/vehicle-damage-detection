@@ -24,9 +24,11 @@ The model predicts one of six vehicle damage classes:
 
 ## Preview
 
-![Vehicle validation screen](preview/Screenshot%202026-06-22%20140745.png)
+![Vehicle damage detection app screenshot](preview/app_screenshot.png)
 
-![Prediction result screen](preview/Screenshot%202026-06-22%20140827.png)
+## Model Results
+
+![Vehicle damage classification confusion matrix](docs/model_results.png)
 
 ## Model Details
 
@@ -41,6 +43,18 @@ F_Breakage, F_Crushed, F_Normal, R_Breakage, R_Crushed, R_Normal
 ```
 
 The app maps those folder labels to user-friendly class names.
+
+## Notebooks
+
+- `notebooks/vehicle_damage_training.ipynb`: main training and evaluation notebook.
+- `notebooks/hyperparameter_tuning.ipynb`: hyperparameter tuning experiments.
+
+## Sample Images
+
+The `sample_images/` folder includes small example images for quick local testing:
+
+- `sample_images/damage_1.jpg`
+- `sample_images/no_damage_or_other.jpg`
 
 ## Validation Logic
 
@@ -64,14 +78,21 @@ Increase these values to make the app stricter, or lower them if valid vehicle i
 Vehicle-damage-detection/
 |-- app.py
 |-- model_helper.py
-|-- model/
-|   `-- saved_model.pth
-|-- preview/
-|   |-- Screenshot 2026-06-22 140745.png
-|   `-- Screenshot 2026-06-22 140827.png
 |-- requirements.txt
 |-- README.md
-`-- .gitignore
+|-- .gitignore
+|-- model/
+|   `-- saved_model.pth
+|-- notebooks/
+|   |-- vehicle_damage_training.ipynb
+|   `-- hyperparameter_tuning.ipynb
+|-- preview/
+|   `-- app_screenshot.png
+|-- sample_images/
+|   |-- damage_1.jpg
+|   `-- no_damage_or_other.jpg
+`-- docs/
+    `-- model_results.png
 ```
 
 ## Run Locally
@@ -79,8 +100,8 @@ Vehicle-damage-detection/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Vehicle-damage-detection.git
-cd Vehicle-damage-detection
+git clone https://github.com/moazsarwar2004/vehicle-damage-detection.git
+cd vehicle-damage-detection
 ```
 
 2. Create and activate a virtual environment:
@@ -133,4 +154,8 @@ streamlit run app.py
 - PyTorch
 - Torchvision
 - Pillow
+- Matplotlib
+- Scikit-learn
+- Optuna
+- Jupyter Notebook
 - ResNet50 transfer learning
